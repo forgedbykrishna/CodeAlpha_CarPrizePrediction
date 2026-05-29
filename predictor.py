@@ -62,14 +62,12 @@ def main():
     if X_train is None:
         return
     
-    # ---------------------------------------------------------
     # Model Training: Linear Regression
-    # ---------------------------------------------------------
     print("\n--- Training Linear Regression Model ---")
     lin_reg_model = LinearRegression()
     lin_reg_model.fit(X_train, Y_train)
     
-    # --- Training Data Evaluation ---
+    # Training Data Evaluation
     training_data_prediction = lin_reg_model.predict(X_train)
     
     error_score_train = metrics.r2_score(Y_train, training_data_prediction)
@@ -83,7 +81,7 @@ def main():
                               "Actual Prices vs Predicted Prices (Training Data)", 
                               "train_predictions.png")
 
-    # --- Testing Data Evaluation ---
+    # Testing Data Evaluation
     test_data_prediction = lin_reg_model.predict(X_test)
     
     error_score_test = metrics.r2_score(Y_test, test_data_prediction)
